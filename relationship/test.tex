@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage[utf8x]{inputenc}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[english,russian]{babel}
+
+\usetikzlibrary{decorations.text}
+\newcommand\PathWithText[1]{
+\draw (0,0) circle (1cm);
+\path[
+  postaction={
+    decorate,
+      decoration={
+        text along path,
+        reverse path=false,
+        text={#1}
+      }
+    }
+] (0,0) circle (1cm);
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+\PathWithText{к}
+\end{tikzpicture}
+\end{document}
