@@ -1,56 +1,163 @@
-\documentclass[tikz,10pt]{standalone}
-\usepackage[utf8x]{inputenc}
-\usepackage[T2A,T1]{fontenc}
-\usepackage[english,russian]{babel}
+%!TEX program = xelatex
+\documentclass[landscape, 12pt,a4paper]{report}
+\usepackage[landscape]{geometry}
+\linespread{0}
+\usepackage[english, russian]{babel}
+
 \usepackage{tikz}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{mathtext}
+\usepackage{geometry}
+\usepackage{pdfcomment}
+\usepackage{textcomp}
+
+\usepackage{stackengine,marvosym,xcolor,trimclip}
+
+
+\geometry{left=0cm,right=0cm,top=0cm,bottom=0cm,bindingoffset=0cm}
+
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes,snakes}
 \usetikzlibrary{automata,positioning}
+\usepackage{fontspec}
+\linespread{0}
 \usetikzlibrary{decorations.text}
 
+\setmainfont{cmunrm.ttf}[
+BoldFont = cmunbx.ttf ,
+ItalicFont = cmunti.ttf ,
+BoldItalicFont = cmunbi.ttf ]
 
 
+\newcommand\rrelationship  [1]{[thick, postaction={decorate,decoration={text along path, text align=center, raise={+1ex}, reverse path, text={|\small|#1} }}]}
+\newcommand\relationship  [1]{[thick, postaction={decorate,decoration={text along path, text align=center, raise={+1ex}, text={|\small|#1} }}]}
 
+\newcommand{\vampire}{\textdagger}
+\newcommand{\men}{\Gentsroom}
+\newcommand{\women}{\Ladiesroom}
+\newcommand{\gule}{$\Xi$}
 \begin{document}
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node 
-                    distance=3cm,
+\newpage
+ \begin{centering}
+~ \newline
+\section*{Хроники полумесяца. Карта отношений}
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
                     thick,
                     main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
-                    
   \tikzstyle{every  node}=[draw,align=center] 
   %begin{Игровые персонажи}
-  \input{Kyle}
-  \input{Daren}
-  \input{Margaret}
-  \input{Joseph}
-  \input{Brut}
-  \input{June}
-  \input{detective}
-  \node[ellipse] (Enrica Moretti) [left of=detective] {Энрика\\Моретти};
-  \node[ellipse] (Clare) [left of=Enrica Moretti] {Клэр};
-
+    \node[rectangle] (Kyle)  { Кайл \vampire \\ \tiny врач};
+    \node[rectangle] (Daren) at (-6,0) {Дарен \vampire \\ \tiny безопасник};
+    \node[rectangle] (Margaret) at (-15,-5) {Маргарет \vampire };
+    \node[rectangle] (Joseph) at (-15,0) {Джозеф \vampire \\ \tiny музейный сторож};
+    \node[rectangle] (Brut)  at (-20,-7) {Брут \vampire \\\tiny лесник};
+    \node[rectangle] (June) [ below = of Margaret] {Джун \vampire\\\tiny бармен};
   %end{Игровые персонажи}
 
-  %begin{Опоры}
+  %\begin{Неигровые персонажи}
+    \node[ellipse] (Samanta) [above  = of Joseph] {Саманта \women \\\tiny шеф-повар};
+    \node[ellipse] (Jordan) [above = of Kyle] {Джордан \Gentsroom \\\tiny главврач};
+    \node[ellipse] (Carl) [below = of Kyle] {Карл \vampire \\Осецкий};
+    \node[ellipse] (Charlie) [node distance=1cm,below = of Carl] {Чарли \vampire \\Саливан\\\tiny<<Берд>>};    
+    \node[ellipse] (James K) [above = of Daren] {Джэймс \men \\Каннивал};
+    \node[ellipse] (James S) [node distance=1cm,above right = of James K] {Джэймс \men \\Салливан};
+    \node[ellipse] (Kaitley) [below = of Daren]{Кейтли  \vampire \\Найт};
+    \node[ellipse] (Henry) [node distance=0.5cm,below  left = of Samanta]{Генри \vampire \\\tiny глава тетра\\};
+    \node[ellipse] (Ray) [left = of Joseph] {Рэй \vampire \\\tiny{местный Джон Уик}};
+    \node[ellipse] (Kris) [node distance = 1cm,above left= of Ray] {Крис \vampire};
+    \node[ellipse] (Clare) [left of=Henry] {Клэр \vampire};
+    \node[ellipse] (Enrica Moretti) [left of=Clare,node distance=5cm] {Энрика \vampire \\Моретти};
+    \node[ellipse] (Olivia) [node distance = 2cm,above right = of Joseph] {Оливия \women\\ \tiny композитор, бармен};
+    \node[ellipse] (Oliver) [above left = of Daren,node distance = 1.4cm,above  = of Olivia] {Оливер \men \\Стоун};
+  %\end{Неигровые персонажи}
 
-  %end{Опоры}
-  % \path[every node/.style={font=\sffamily\small}]
-  %   (1) edge node [left] {0.6} (4)
-  %       edge [bend right] node[left] {0.3} (2)
-  %       edge [loop above] node {0.1} (1)
-  %       edge [bend right] node {kek} (4)
-  %   (2) edge node [right] {0.4} (1)
-  %       edge node {0.3} (4)
-  %       edge [loop left] node {0.4} (2)
-  %       edge [bend right] node[left] {0.1} (3)
-  %   (3) edge node [right] {0.8} (2)
-  %       edge [bend right] node[right] {0.2} (4)
-  %   (4) edge node [left] {0.2} (3)
-  %       edge [loop right] node {0.6} (4)
-  %       edge [bend right] node[right] {0.2} (1);
+  %\begin{Опоры и сиры}
+    \draw\relationship {сир}   [<-]   (Kyle)  to [bend left]     (Carl);
+    \draw\relationship {опора} [->]   (Kyle)  to [bend left]    (Jordan);
+    \draw\rrelationship{болезнь Шери} [<-]   (Kyle)  to [bend left]    (Jordan);
+
+
+    \draw\relationship {сир}   [<-]   (Daren) to [bend left]  (Kaitley);
+    \draw\relationship {опора} [->]   (Daren) to [bend right] (James K);  
+    \draw\relationship {опора} [->]   (Daren) to [bend right]  (Oliver);
+
+    \draw\rrelationship{сир}   [<-]  (Joseph) to [right]        (Henry);
+    \draw\relationship {опора} [->]  (Joseph) to [bend right]     (Samanta);
+    \draw\rrelationship {сбежавший отец} [<-]  (Joseph) to [bend right]     (Samanta);
+  %\end{Опоры и сиры}
+
+  %begin{Отношения Кайла}
+  	\draw\relationship {информатор}   [<->]   (Kyle.east)  to [bend left=50]     (Charlie);
+  %end{Отношения Кайла}
+
+
+  %begin{Отношения Дарена}
+    \draw\relationship{бывший коллега}[->](Oliver) to [bend left]  (Daren);
+    \draw\relationship{поставщик крови}[->] (Daren) to [bend right] (James S);
+  %end{Отношения Дарена}
+
+  %begin{Отношения Джозефа}
+    \draw\rrelationship{ходит в бар}[->] (Joseph) to [bend right](Olivia);
+    \draw\rrelationship{}[<->] (Joseph) to [left](Kris);
+    \draw\rrelationship{вытащил из стены}[->] (Joseph.west) to [bend left](Ray);
+    \draw\relationship{презирает}[<-] (Joseph) to [bend right](Olivia);
+    \draw\rrelationship{бывшие коллеги}[<->] (Joseph) to [right](Clare);
+  %end{Отношения Джозефа}
+
+
+  % \node[ellipse] (Stemford) [above = of Clare]{
+  %     Стемфорд\\\scriptsize театр. критик};
+
+  % \draw\relationship{сир}[<-] (Clare) to [bend left] (Stemford);
+
+
+
+  % \draw\rrelationship{оппоненты}[<->] (Henry) to [left] (Stemford);
+  % \input{detective}
+
+
+  %begin{Отношения в котерии}
+    \draw\rrelationship{покупатель}[<-] (June) to [bend right] (Kyle);
+    \draw\relationship{связные}[<->] (Daren) to [bend right] (Kyle);
+    \draw\relationship{знакомы по элизиуму}[<->] (Joseph) to [bend right] (Margaret);
+    \draw\relationship{знакомы по элизиуму}[<->] (Enrica Moretti) to [bend right=60] (Margaret);
+    \draw\relationship{информатор}[->] (Margaret) to [bend right] (Daren);
+    \draw\rrelationship{связные}[<->] (Joseph) to [bend right] (Brut);
+    \draw\relationship{ходит в бар}[->] (Brut) to (June);
+  %end{Отношения в котерии}
+
+  %begin{Отношения неигровых персонажей}
+    \draw\rrelationship{клиент}[->] (Oliver) to (Olivia);
+    \draw\rrelationship{}[<->] (Kris) to [bend right] (Ray);
+    \draw\rrelationship{встречались на показах}[<->] (Clare) to [bend right] (Enrica Moretti);
+  %end{Отношения неигровых персонажей}
+
+ \node[draw,align=left] at (-2,-11) 
+{\textbf{Законы хроники }:\\
+  1. Не лезь в чужой монастырь.\\
+  2. Долг превыше всего. \\
+  3. Любая жестокость должна быть оправдана. \\
+  4. Цени тех, кто тебя окружает.};
+
+ \node[draw,align=left] at (-25,-11) 
+{\textbf{Легенда}:\\
+  \men/\women -- смертный \\
+  \vampire -- сородич \\
+  \gule -- гуль};
+
+
+
 \end{tikzpicture}
+
+\end{centering}
+
+
+% \begin{tikzpicture}
+% \node[draw,align=left] at (0,0) 
+% {\textbf{Законы хроники}:\\
+%   1. Не лезь в чужой монастырь.\\
+%   2. Долг превыше всего. \\
+%   3. Любая жестокость должна быть оправдана. \\
+%   4. Цени тех, кто тебя окружает.};
+% \end{tikzpicture}
 
 
 \end{document}
