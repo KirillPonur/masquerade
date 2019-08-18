@@ -25,7 +25,7 @@
 BoldFont = cmunbx.ttf ,
 ItalicFont = cmunti.ttf ,
 BoldItalicFont = cmunbi.ttf ]
-
+\setmonofont{gothic.ttf}
 
 \newcommand\rrelationship  [1]{[thick, postaction={decorate,decoration={text along path, text align=center, raise={+1ex}, reverse path, text={|\small|#1} }}]}
 \newcommand\relationship  [1]{[thick, postaction={decorate,decoration={text along path, text align=center, raise={+1ex}, text={|\small|#1} }}]}
@@ -38,7 +38,8 @@ BoldItalicFont = cmunbi.ttf ]
 \newpage
  \begin{centering}
 ~ \newline
-\section*{Хроники полумесяца. Карта отношений}
+\section*{\texttt{Vampire the Masquerade}}
+\subsection*{Хроники полумесяца. Карта отношений}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
                     thick,
                     main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
