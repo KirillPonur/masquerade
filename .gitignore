@@ -2,3 +2,18 @@
 *.xdv
 
 *.gz
+
+*.out
+
+*.aux
+
+*.fls
+
+*.fdb_latexmk
+
+*.txt
+
+*.upa
+
+*.upb
+
