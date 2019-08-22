@@ -3,13 +3,13 @@
 \usepackage[landscape]{geometry}
 \linespread{0}
 \usepackage[english, russian]{babel}
+\usepackage{stackengine,marvosym,xcolor,trimclip}
+\usepackage[unicode, colorlinks, urlcolor=magenta, linkcolor=black]{hyperref}
 
 \usepackage{tikz}
 \usepackage{geometry}
 \usepackage{pdfcomment}
 \usepackage{textcomp}
-
-\usepackage{stackengine,marvosym,xcolor,trimclip}
 
 
 \geometry{left=0cm,right=0cm,top=0cm,bottom=0cm,bindingoffset=0cm}
@@ -34,6 +34,9 @@ BoldItalicFont = cmunbi.ttf ]
 \newcommand{\men}{\Gentsroom}
 \newcommand{\women}{\Ladiesroom}
 \newcommand{\gule}{$\Xi$}
+
+
+
 \begin{document}
 \newpage
 \begin{centering}
@@ -41,37 +44,105 @@ BoldItalicFont = cmunbi.ttf ]
 \section*{Хроники полумесяца. Карта отношений}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
                     thick,
-                    main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+                    vampire node/.style={circle,draw,font=\sffamily\Large\bfseries}]
   \tikzstyle{every  node}=[draw,align=center] 
   %begin{Игровые персонажи}
-    \node[rectangle] (Alan)  at (-25,-7) { Алан \vampire \\ \tiny Бруха \\ \tiny частный детектив};
-    \node[rectangle] (Kyle)  { Кайл \vampire \\ \tiny Тремер, \\ \tiny доктор};
-    \node[rectangle] (Daren) at (-6,0) {Дарен \vampire \\ \tiny Тремер \\ \tiny безопасник};
-    \node[rectangle] (Margaret) at (-15,-5) {Маргарет \vampire \\ \tiny Вентру};
-    \node[rectangle] (Joseph) at (-15,0) {Джозеф \vampire \\ \tiny Тореадор \\ \tiny музейный сторож};
-    \node[rectangle] (Brut)  at (-20,-7) {Брут \vampire \\\tiny Гангрел \\ \tiny лесник};
-    \node[rectangle] (June) at  (-15,-11) {Джун \vampire\\\tiny Бруха  \\ \tiny бармен, наркоторговец};
+    \node[rectangle] (Alan)  at (-25,-7) { 
+        \href{https://vk.com/photo235055906_457242970}{Алан} \vampire \\
+        \tiny Бруха \\ 
+        \tiny частный детектив};
+    \node[rectangle] (Kyle)  { 
+        \href{https://vk.com/photo235055906_457242963}{Кайл} \vampire 
+        \\ \tiny Тремер
+        \\ \tiny доктор
+        };
+    \node[rectangle] (Daren) at (-6,0) {
+        \href{https://vk.com/photo235055906_456242450}{Дарен} \vampire \\ 
+        \tiny Тремер \\ 
+        \tiny безопасник
+        };
+    \node[rectangle] (Margaret) at (-15,-5) {
+        \href{https://vk.com/photo235055906_457242959}{Маргарет} \vampire 
+        \\ \tiny
+        Вентру
+        };
+    \node[rectangle] (Joseph) at (-15,0) {
+        \href{https://vk.com/photo235055906_456241994}{Джозеф} \vampire \\ 
+        \tiny Тореадор \\ 
+        \tiny музейный сторож
+        };
+    \node[rectangle] (Brut)  at (-20,-7) {
+        \href{https://vk.com/photo235055906_457242962}{Брут} \vampire \\
+        \tiny Гангрел \\
+        \tiny лесник
+        };
+    \node[rectangle] (June) at  (-15,-11) {
+        \href{https://vk.com/photo235055906_457242958}{Джун} \vampire
+        \\\tiny Бруха  
+        \\ \tiny бармен, наркоторговец
+        };
   %end{Игровые персонажи}
 
   %\begin{Неигровые персонажи}
-    \node[ellipse] (Avessolom) [node distance = 8cm,below left  = of Daren] {Авессолом \vampire \\\tiny древний колдун, Цимисх?};
+    \node[ellipse] (Avessolom) [node distance = 8cm,below left  = of Daren] {
+        \href{https://vk.com/photo235055906_456241920}{Авессолом} \vampire \\
+        \tiny древний колдун, Цимисх?
+        };
     \node[ellipse] (food) [node distance = 2cm,above  = of Alan] {Бомж на\\крокодиле};
-    \node[ellipse] (Adam) [node distance = 1cm,right  = of Avessolom] {Адам Роупс \vampire \\\tiny собака-сутулая};
-    \node[ellipse] (Drake) [node distance = 2cm,below right  = of Alan] {Дрейк \vampire \\\tiny Бруха-анарх};
-    \node[ellipse] (Samanta) [above  = of Joseph] {Саманта \women \\\tiny шеф-повар};
-    \node[ellipse] (Jordan) [above = of Kyle] {Джордан \Gentsroom \\\tiny главврач};
+    \node[ellipse] (Adam) [node distance = 1cm,right  = of Avessolom] {
+        \href{https://vk.com/photo235055906_456241997}{Адам Роупс} \vampire \\
+        \tiny собака сутулая};
+    \node[ellipse] (Drake) [node distance = 2cm,below right  = of Alan] {
+        \href{https://vk.com/photo235055906_456241992}{Дрейк} \vampire \\\tiny Бруха-анарх
+        };
+    \node[ellipse] (Samanta) [above  = of Joseph] {
+        \href{https://vk.com/photo235055906_456241928}{Саманта} \women \\
+        \tiny шеф-повар
+        };
+    \node[ellipse] (Jordan) [above = of Kyle] {
+        Джордан \Gentsroom \\
+        \tiny главврач
+        };
     \node[ellipse] (Sophie) [below = of Kyle] {Софи \vampire \\Паркс};
-    \node[ellipse] (Charlie) [node distance=1cm,below = of Sophie] {Чарли \vampire \\ \tiny<<Берд>> \\Саливан \\ \tiny журналист};    
-    \node[ellipse] (James K) [above = of Daren] {Джэймс \men \\Каннивал};
-    \node[ellipse] (James S) [node distance=1cm,above right = of James K] {Джэймс \men \\Салливан};
-    \node[ellipse] (Kaitley) [below = of Daren]{Кейтли  \vampire \\Найт};
-    \node[ellipse] (Henry) [node distance=0.5cm,below  left = of Samanta]{Генри \vampire \\\tiny глава тетра\\};
-    \node[ellipse] (Ray) [left = of Joseph] {Рэй \vampire \\\tiny{местный Джон Уик}};
-    \node[ellipse] (Kris) [node distance = 1cm,above left= of Ray] {Крис \vampire};
-    \node[ellipse] (Clare) [left of=Henry] {Клэр \vampire};
-    \node[ellipse] (Enrica Moretti) [below left of=Kris,node distance=3cm] {Энрика \vampire \\Моретти};
-    \node[ellipse] (Olivia) [node distance = 2cm,above right = of Joseph] {Оливия \women\\ \tiny композитор, бармен};
-    \node[ellipse] (Oliver) [above left = of Daren,node distance = 1.4cm,above  = of Olivia] {Оливер \men \\Стоун};
+    \node[ellipse] (Charlie) [node distance=1cm,below = of Sophie] {
+        \href{https://vk.com/photo235055906_457242907}{Чарли} \vampire \\ 
+        \tiny <<Берд>> \\
+        Саливан \\ 
+        \tiny журналист
+        };    
+    \node[ellipse] (James K) [above = of Daren] {
+        Джэймс \men 
+        \\Каннивал
+        };
+    \node[ellipse] (James S) [node distance=1cm,above right = of James K] {
+        Джэймс \men \\
+        Салливан
+        };
+    \node[ellipse] (Kaitley) [below = of Daren]{
+        \href{https://vk.com/photo235055906_456241929}{Кейтли}  \vampire \\ Найт};
+    \node[ellipse] (Henry) [node distance=0.5cm,below  left = of Samanta]{
+        Генри \vampire \\
+        \tiny глава тетра\\
+        };
+    \node[ellipse] (Ray) [left = of Joseph] {
+        Рэй \vampire \\
+        \tiny{местный Джон Уик}
+        };
+    \node[ellipse] (Kris) [node distance = 1cm,above left= of Ray] {
+        \href{https://vk.com/photo235055906_456242451}{Крис} \vampire};
+    \node[ellipse] (Clare) [left of=Henry] {
+        \href{https://vk.com/photo235055906_456241996}{Клэр} \vampire
+        };
+    \node[ellipse] (Enrica Moretti) [below left of=Kris,node distance=3cm] {
+        \href{https://vk.com/photo235055906_456241995}{Энрика} \vampire \\
+        Моретти
+        };
+    \node[ellipse] (Olivia) [node distance = 2cm,above right = of Joseph] {
+        \href{https://vk.com/photo235055906_456241925}{Оливия} \women\\ \tiny композитор, бармен};
+    \node[ellipse] (Oliver) [above left = of Daren,node distance = 1.4cm,above  = of Olivia] {
+        \href{https://vk.com/photo235055906_456241927}{Оливер} \men \\
+        Стоун
+        };
   %\end{Неигровые персонажи}
 
   %\begin{Опоры и сиры}
