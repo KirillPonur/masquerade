@@ -20,7 +20,7 @@
 \usepackage{fontspec}
 \linespread{0}
 \usetikzlibrary{decorations.text}
-
+\pagestyle{empty}
 \setmainfont{cmunrm.ttf}[
 BoldFont = cmunbx.ttf ,
 ItalicFont = cmunti.ttf ,
@@ -38,26 +38,28 @@ BoldItalicFont = cmunbi.ttf ]
 \newpage
  \begin{centering}
 ~ \newline
-\section*{\texttt{Vampire the Masquerade}}
-\subsection*{Хроники полумесяца. Карта отношений}
+\section*{Хроники полумесяца. Карта отношений}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
                     thick,
                     main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
   \tikzstyle{every  node}=[draw,align=center] 
   %begin{Игровые персонажи}
-    \node[rectangle] (Kyle)  { Кайл \vampire \\ \tiny врач};
-    \node[rectangle] (Daren) at (-6,0) {Дарен \vampire \\ \tiny безопасник};
+    \node[rectangle] (Alan)  at (-25,-7) { Алан \vampire \\ \tiny Бруха \\ \tiny частный детектив};
+    \node[rectangle] (Kyle)  { Кайл \vampire \\ \tiny Тремер, \\ \tiny доктор};
+    \node[rectangle] (Daren) at (-6,0) {Дарен \vampire \\ \tiny Тремер \\ \tiny безопасник};
     \node[rectangle] (Margaret) at (-15,-5) {Маргарет \vampire };
-    \node[rectangle] (Joseph) at (-15,0) {Джозеф \vampire \\ \tiny музейный сторож};
-    \node[rectangle] (Brut)  at (-20,-7) {Брут \vampire \\\tiny лесник};
-    \node[rectangle] (June) [ below = of Margaret] {Джун \vampire\\\tiny бармен};
+    \node[rectangle] (Joseph) at (-15,0) {Джозеф \vampire \\ \tiny Тореодор \\ \tiny музейный сторож};
+    \node[rectangle] (Brut)  at (-20,-7) {Брут \vampire \\\tiny Гангрел \\ \tiny лесник};
+    \node[rectangle] (June) at  (-15,-10) {Джун \vampire\\\tiny Бруха  \\ \tiny бармен, наркоторговец};
   %end{Игровые персонажи}
 
   %\begin{Неигровые персонажи}
+    \node[ellipse] (Avessolom) [node distance = 8cm,below left  = of Daren] {Авессолом \vampire \\\tiny древний колдун};
+    \node[ellipse] (Adam) [node distance = 1cm,right  = of Avessolom] {Адам Роупс \vampire \\\tiny собака-сутулая};
     \node[ellipse] (Samanta) [above  = of Joseph] {Саманта \women \\\tiny шеф-повар};
     \node[ellipse] (Jordan) [above = of Kyle] {Джордан \Gentsroom \\\tiny главврач};
-    \node[ellipse] (Carl) [below = of Kyle] {Карл \vampire \\Осецкий};
-    \node[ellipse] (Charlie) [node distance=1cm,below = of Carl] {Чарли \vampire \\Саливан\\\tiny<<Берд>>};    
+    \node[ellipse] (Sophie) [below = of Kyle] {Софи \vampire \\Паркс};
+    \node[ellipse] (Charlie) [node distance=1cm,below = of Sophie] {Чарли \vampire \\Саливан\\\tiny<<Берд>>};    
     \node[ellipse] (James K) [above = of Daren] {Джэймс \men \\Каннивал};
     \node[ellipse] (James S) [node distance=1cm,above right = of James K] {Джэймс \men \\Салливан};
     \node[ellipse] (Kaitley) [below = of Daren]{Кейтли  \vampire \\Найт};
@@ -65,13 +67,14 @@ BoldItalicFont = cmunbi.ttf ]
     \node[ellipse] (Ray) [left = of Joseph] {Рэй \vampire \\\tiny{местный Джон Уик}};
     \node[ellipse] (Kris) [node distance = 1cm,above left= of Ray] {Крис \vampire};
     \node[ellipse] (Clare) [left of=Henry] {Клэр \vampire};
-    \node[ellipse] (Enrica Moretti) [left of=Clare,node distance=5cm] {Энрика \vampire \\Моретти};
+    \node[ellipse] (Enrica Moretti) [below left of=Kris,node distance=3cm] {Энрика \vampire \\Моретти};
     \node[ellipse] (Olivia) [node distance = 2cm,above right = of Joseph] {Оливия \women\\ \tiny композитор, бармен};
     \node[ellipse] (Oliver) [above left = of Daren,node distance = 1.4cm,above  = of Olivia] {Оливер \men \\Стоун};
   %\end{Неигровые персонажи}
 
   %\begin{Опоры и сиры}
-    \draw\relationship {сир}   [<-]   (Kyle)  to [bend left]     (Carl);
+    \draw\relationship {сир}   [<-]   (Kyle)  to [bend left]     (Sophie);
+    \draw\rrelationship {мертва?}   [->]   (Kyle)  to [bend left]     (Sophie);
     \draw\relationship {опора} [->]   (Kyle)  to [bend left]    (Jordan);
     \draw\rrelationship{болезнь Шери} [<-]   (Kyle)  to [bend left]    (Jordan);
 
@@ -85,14 +88,21 @@ BoldItalicFont = cmunbi.ttf ]
     \draw\rrelationship {сбежавший отец} [<-]  (Joseph) to [bend right]     (Samanta);
   %\end{Опоры и сиры}
 
+    %begin{Отношения Брута}
+      \draw\relationship {знакомы по банде}   [<->]   (Brut.east)  to [bend right]     (Adam);
+      \draw\relationship {книги?}   [<->]   (Brut)  to [bend left]     (Avessolom.west);
+    %end{Отношения Брута}
+
   %begin{Отношения Кайла}
-  	\draw\relationship {информатор}   [<->]   (Kyle.east)  to [bend left=50]     (Charlie);
+    \draw\relationship {информатор}   [<->]   (Kyle.east)  to [bend left=50]     (Charlie);
   %end{Отношения Кайла}
 
 
   %begin{Отношения Дарена}
     \draw\relationship{бывший коллега}[->](Oliver) to [bend left]  (Daren);
     \draw\relationship{поставщик крови}[->] (Daren) to [bend right] (James S);
+    \draw\relationship{}[->] (Daren) to [bend right] (Avessolom);
+    \draw\relationship{|\tiny| подозрительный новенький}[->] (Daren) to [left] (Adam);
   %end{Отношения Дарена}
 
   %begin{Отношения Джозефа}
@@ -119,16 +129,16 @@ BoldItalicFont = cmunbi.ttf ]
     \draw\rrelationship{покупатель}[<-] (June) to [bend right] (Kyle);
     \draw\relationship{связные}[<->] (Daren) to [bend right] (Kyle);
     \draw\relationship{знакомы по элизиуму}[<->] (Joseph) to [bend right] (Margaret);
-    \draw\relationship{знакомы по элизиуму}[<->] (Enrica Moretti) to [bend right=60] (Margaret);
+    \draw\relationship{знакомы по элизиуму}[<->] (Enrica Moretti) to [bend right] (Margaret);
     \draw\relationship{информатор}[->] (Margaret) to [bend right] (Daren);
-    \draw\rrelationship{связные}[<->] (Joseph) to [bend right] (Brut);
+    % \draw\rrelationship{связные}[<->] (Joseph) to [bend right] (Brut);
     \draw\relationship{ходит в бар}[->] (Brut) to (June);
   %end{Отношения в котерии}
 
   %begin{Отношения неигровых персонажей}
     \draw\rrelationship{клиент}[->] (Oliver) to (Olivia);
     \draw\rrelationship{}[<->] (Kris) to [bend right] (Ray);
-    \draw\rrelationship{встречались на показах}[<->] (Clare) to [bend right] (Enrica Moretti);
+    \draw\rrelationship{встречались на показах}[<->] (Clare) to [bend right=70] (Enrica Moretti);
   %end{Отношения неигровых персонажей}
 
  \node[draw,align=left] at (-2,-11) 
