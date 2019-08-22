@@ -37,7 +37,7 @@ BoldItalicFont = cmunbi.ttf ]
 \begin{document}
 \newpage
  \begin{centering}
-~ \newline
+% ~ \newline
 \section*{Хроники полумесяца. Карта отношений}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
                     thick,
@@ -48,14 +48,15 @@ BoldItalicFont = cmunbi.ttf ]
     \node[rectangle] (Kyle)  { Кайл \vampire \\ \tiny Тремер, \\ \tiny доктор};
     \node[rectangle] (Daren) at (-6,0) {Дарен \vampire \\ \tiny Тремер \\ \tiny безопасник};
     \node[rectangle] (Margaret) at (-15,-5) {Маргарет \vampire };
-    \node[rectangle] (Joseph) at (-15,0) {Джозеф \vampire \\ \tiny Тореодор \\ \tiny музейный сторож};
+    \node[rectangle] (Joseph) at (-15,0) {Джозеф \vampire \\ \tiny Тореадор \\ \tiny музейный сторож};
     \node[rectangle] (Brut)  at (-20,-7) {Брут \vampire \\\tiny Гангрел \\ \tiny лесник};
-    \node[rectangle] (June) at  (-15,-10) {Джун \vampire\\\tiny Бруха  \\ \tiny бармен, наркоторговец};
+    \node[rectangle] (June) at  (-15,-11) {Джун \vampire\\\tiny Бруха  \\ \tiny бармен, наркоторговец};
   %end{Игровые персонажи}
 
   %\begin{Неигровые персонажи}
     \node[ellipse] (Avessolom) [node distance = 8cm,below left  = of Daren] {Авессолом \vampire \\\tiny древний колдун};
     \node[ellipse] (Adam) [node distance = 1cm,right  = of Avessolom] {Адам Роупс \vampire \\\tiny собака-сутулая};
+    \node[ellipse] (Drake) [node distance = 2cm,below right  = of Alan] {Дрейк \vampire \\\tiny Бруха-анарх};
     \node[ellipse] (Samanta) [above  = of Joseph] {Саманта \women \\\tiny шеф-повар};
     \node[ellipse] (Jordan) [above = of Kyle] {Джордан \Gentsroom \\\tiny главврач};
     \node[ellipse] (Sophie) [below = of Kyle] {Софи \vampire \\Паркс};
@@ -88,10 +89,18 @@ BoldItalicFont = cmunbi.ttf ]
     \draw\rrelationship {сбежавший отец} [<-]  (Joseph) to [bend right]     (Samanta);
   %\end{Опоры и сиры}
 
-    %begin{Отношения Брута}
-      \draw\relationship {знакомы по банде}   [<->]   (Brut.east)  to [bend right]     (Adam);
-      \draw\relationship {книги?}   [<->]   (Brut)  to [bend left]     (Avessolom.west);
-    %end{Отношения Брута}
+  %begin{Отношения Алана}
+    \draw\relationship {}   [<->]   (Alan)  to [bend right]     (Drake);
+  %end{Отношения Алана}
+
+  %begin{Отношения Брута}
+    \draw\relationship {знакомы по банде}   [<->]   (Brut.east)  to [bend right]     (Adam);
+    \draw\relationship {книги?}   [<->]   (Brut)  to [bend left]     (Avessolom.west);
+  %end{Отношения Брута}
+
+  %begin{Отношения Брута}
+    \draw\rrelationship {знакомы?}   [<->]   (June)  to [bend left]     (Drake);
+  %end{Отношения Брута}
 
   %begin{Отношения Кайла}
     \draw\relationship {информатор}   [<->]   (Kyle.east)  to [bend left=50]     (Charlie);
@@ -102,13 +111,13 @@ BoldItalicFont = cmunbi.ttf ]
     \draw\relationship{бывший коллега}[->](Oliver) to [bend left]  (Daren);
     \draw\relationship{поставщик крови}[->] (Daren) to [bend right] (James S);
     \draw\relationship{}[->] (Daren) to [bend right] (Avessolom);
-    \draw\relationship{|\tiny| подозрительный новенький}[->] (Daren) to [left] (Adam);
+    \draw\relationship{ подозрительный новенький}[->] (Daren) to [left] (Adam);
   %end{Отношения Дарена}
 
   %begin{Отношения Джозефа}
     \draw\rrelationship{ходит в бар}[->] (Joseph) to [bend right](Olivia);
     \draw\rrelationship{}[<->] (Joseph) to [left](Kris);
-    \draw\rrelationship{вытащил из стены}[->] (Joseph.west) to [bend left](Ray);
+    \draw\rrelationship{спас из оцепенения}[->] (Joseph.west) to [bend left](Ray);
     \draw\relationship{презирает}[<-] (Joseph) to [bend right](Olivia);
     \draw\rrelationship{бывшие коллеги}[<->] (Joseph) to [right](Clare);
   %end{Отношения Джозефа}
@@ -126,7 +135,7 @@ BoldItalicFont = cmunbi.ttf ]
 
 
   %begin{Отношения в котерии}
-    \draw\rrelationship{покупатель}[<-] (June) to [bend right] (Kyle);
+    \draw\relationship{покупатель}[<-] (June) to [bend right] (Kyle);
     \draw\relationship{связные}[<->] (Daren) to [bend right] (Kyle);
     \draw\relationship{знакомы по элизиуму}[<->] (Joseph) to [bend right] (Margaret);
     \draw\relationship{знакомы по элизиуму}[<->] (Enrica Moretti) to [bend right] (Margaret);
@@ -141,14 +150,14 @@ BoldItalicFont = cmunbi.ttf ]
     \draw\rrelationship{встречались на показах}[<->] (Clare) to [bend right=70] (Enrica Moretti);
   %end{Отношения неигровых персонажей}
 
- \node[draw,align=left] at (-2,-11) 
+ \node[draw,align=left] at (-2,-12) 
 {\textbf{Законы хроники }:\\
   1. Не лезь в чужой монастырь.\\
   2. Долг превыше всего. \\
   3. Любая жестокость должна быть оправдана. \\
   4. Цени тех, кто тебя окружает.};
 
- \node[draw,align=left] at (-25,-11) 
+ \node[draw,align=left] at (-25,-12) 
 {\textbf{Легенда}:\\
   \men/\women -- смертный \\
   \vampire -- сородич \\
