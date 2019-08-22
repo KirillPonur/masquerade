@@ -36,7 +36,7 @@ BoldItalicFont = cmunbi.ttf ]
 \newcommand{\gule}{$\Xi$}
 \begin{document}
 \newpage
- \begin{centering}
+\begin{centering}
 % ~ \newline
 \section*{Хроники полумесяца. Карта отношений}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm,
@@ -60,7 +60,7 @@ BoldItalicFont = cmunbi.ttf ]
     \node[ellipse] (Samanta) [above  = of Joseph] {Саманта \women \\\tiny шеф-повар};
     \node[ellipse] (Jordan) [above = of Kyle] {Джордан \Gentsroom \\\tiny главврач};
     \node[ellipse] (Sophie) [below = of Kyle] {Софи \vampire \\Паркс};
-    \node[ellipse] (Charlie) [node distance=1cm,below = of Sophie] {Чарли \vampire \\Саливан\\\tiny<<Берд>>};    
+    \node[ellipse] (Charlie) [node distance=1cm,below = of Sophie] {Чарли \vampire \\\tiny<<Берд>> \\Саливан \\\tiny журналист};    
     \node[ellipse] (James K) [above = of Daren] {Джэймс \men \\Каннивал};
     \node[ellipse] (James S) [node distance=1cm,above right = of James K] {Джэймс \men \\Салливан};
     \node[ellipse] (Kaitley) [below = of Daren]{Кейтли  \vampire \\Найт};
@@ -117,7 +117,7 @@ BoldItalicFont = cmunbi.ttf ]
   %begin{Отношения Джозефа}
     \draw\rrelationship{ходит в бар}[->] (Joseph) to [bend right](Olivia);
     \draw\rrelationship{}[<->] (Joseph) to [left](Kris);
-    \draw\rrelationship{спас из оцепенения}[->] (Joseph.west) to [bend left](Ray);
+    \draw\rrelationship{~~спас из оцепенения}[->] (Joseph.west) to [bend left](Ray);
     \draw\relationship{презирает}[<-] (Joseph) to [bend right](Olivia);
     \draw\rrelationship{бывшие коллеги}[<->] (Joseph) to [right](Clare);
   %end{Отношения Джозефа}
@@ -166,18 +166,7 @@ BoldItalicFont = cmunbi.ttf ]
 
 
 \end{tikzpicture}
-
 \end{centering}
-
-
-% \begin{tikzpicture}
-% \node[draw,align=left] at (0,0) 
-% {\textbf{Законы хроники}:\\
-%   1. Не лезь в чужой монастырь.\\
-%   2. Долг превыше всего. \\
-%   3. Любая жестокость должна быть оправдана. \\
-%   4. Цени тех, кто тебя окружает.};
-% \end{tikzpicture}
 
 
 \end{document}
