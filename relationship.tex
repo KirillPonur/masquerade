@@ -54,13 +54,14 @@ BoldItalicFont = cmunbi.ttf ]
   %end{Игровые персонажи}
 
   %\begin{Неигровые персонажи}
-    \node[ellipse] (Avessolom) [node distance = 8cm,below left  = of Daren] {Авессолом \vampire \\\tiny древний колдун};
+    \node[ellipse] (Avessolom) [node distance = 8cm,below left  = of Daren] {Авессолом \vampire \\\tiny древний колдун, Цимисх?};
+    \node[ellipse] (food) [node distance = 2cm,above  = of Alan] {Бомж на\\крокодиле};
     \node[ellipse] (Adam) [node distance = 1cm,right  = of Avessolom] {Адам Роупс \vampire \\\tiny собака-сутулая};
     \node[ellipse] (Drake) [node distance = 2cm,below right  = of Alan] {Дрейк \vampire \\\tiny Бруха-анарх};
     \node[ellipse] (Samanta) [above  = of Joseph] {Саманта \women \\\tiny шеф-повар};
     \node[ellipse] (Jordan) [above = of Kyle] {Джордан \Gentsroom \\\tiny главврач};
     \node[ellipse] (Sophie) [below = of Kyle] {Софи \vampire \\Паркс};
-    \node[ellipse] (Charlie) [node distance=1cm,below = of Sophie] {Чарли \vampire \\\tiny<<Берд>> \\Саливан \\\tiny журналист};    
+    \node[ellipse] (Charlie) [node distance=1cm,below = of Sophie] {Чарли \vampire \\ \tiny<<Берд>> \\Саливан \\ \tiny журналист};    
     \node[ellipse] (James K) [above = of Daren] {Джэймс \men \\Каннивал};
     \node[ellipse] (James S) [node distance=1cm,above right = of James K] {Джэймс \men \\Салливан};
     \node[ellipse] (Kaitley) [below = of Daren]{Кейтли  \vampire \\Найт};
@@ -91,6 +92,7 @@ BoldItalicFont = cmunbi.ttf ]
 
   %begin{Отношения Алана}
     \draw\relationship {}   [<->]   (Alan)  to [bend right]     (Drake);
+    \draw\relationship {вкуснятина}   [->]   (Alan)  to [bend right]     (food);
   %end{Отношения Алана}
 
   %begin{Отношения Брута}
